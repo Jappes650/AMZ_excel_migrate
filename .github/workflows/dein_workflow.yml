@@ -23,7 +23,7 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
     
-    - name: Build with PyInstaller
+    - name: Build with PyInstaller (Windows)
       run: |
         pyinstaller --onefile --windowed --name "AMZ_Excel_Migration_Tool" --icon=icon.ico AMZ_excel_migrate.py
         
@@ -43,18 +43,13 @@ jobs:
       with:
         python-version: '3.10'
     
-    - name: Install system dependencies
-      run: |
-        # Installiere benötigte System-Pakete für PyInstaller auf macOS
-        brew install libmagic
-    
     - name: Install Python dependencies
       run: |
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
         pip3 install pyinstaller
     
-    - name: Build with PyInstaller
+    - name: Build with PyInstaller (macOS)
       run: |
         pyinstaller --onefile --windowed --name "AMZ_Excel_Migration_Tool" --icon=icon.icns AMZ_excel_migrate.py
         
