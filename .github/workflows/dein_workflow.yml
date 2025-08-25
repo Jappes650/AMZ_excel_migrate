@@ -23,9 +23,10 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
     
-    - name: Build with PyInstaller
+    - name: Build with PyInstaller (Windows)
       run: |
-        pyinstaller --onefile --noconsole --name "AMZ_Excel_Migration_Tool" --icon=icon.ico AMZ_excel_migrate.py
+        # Einfacher Build ohne Icon falls Probleme auftreten
+        pyinstaller --onefile --noconsole --name "AMZ_Excel_Migration_Tool" AMZ_excel_migrate.py
         
     - name: Upload Windows artifact
       uses: actions/upload-artifact@v4
@@ -49,9 +50,10 @@ jobs:
         pip3 install -r requirements.txt
         pip3 install pyinstaller
     
-    - name: Build with PyInstaller
+    - name: Build with PyInstaller (macOS)
       run: |
-        pyinstaller --onefile --noconsole --name "AMZ_Excel_Migration_Tool" --icon=icon.icns AMZ_excel_migrate.py
+        # Einfacher Build ohne Icon falls Probleme auftreten
+        pyinstaller --onefile --noconsole --name "AMZ_Excel_Migration_Tool" AMZ_excel_migrate.py
         
     - name: Upload macOS artifact
       uses: actions/upload-artifact@v4
